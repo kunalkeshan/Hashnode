@@ -91,28 +91,28 @@ Next, we're passing on the details to a mailer function (which we'll get to in a
 * @access Public
 */
 app.post('/api/contact', async (req, res) => {
-// Collecting required information from the Request Body
-const { name, email, message } = req.body;
-try {
-// Sending the email
-// await sendContactEmail({ to: email, name, message });
-res
-.status(200)
-.json({
-message: 'Email sent successfully',
-data: { name, email, message },
-success: true
-});
-} catch (error) {
-console.log(error);
-return res
-.status(400)
-.json({
-message: 'Unable to process request',
-data: {},
-success: false,
-})
-}
+  // Collecting required information from the Request Body
+  const { name, email, message } = req.body;
+  try {
+    // Sending the email
+    // await sendContactEmail({ to: email, name, message });
+    res
+      .status(200)
+      .json({
+        message: 'Email sent successfully',
+        data: { name, email, message },
+        success: true
+      });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(400)
+      .json({
+        message: 'Unable to process request',
+        data: {},
+        success: false,
+      })
+  }
 })
 ```
 
